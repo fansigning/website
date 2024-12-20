@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #000;
+        }
+        .countdown {
+            text-align: center;
+            color: #fff;
+        }
+        .time {
+            font-size: 2em;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="countdown">
+        <div class="time" id="time">00:00:00</div>
+    </div>
+
+    <script>
+        const timeDisplay = document.getElementById('time');
+
+        const targetTime = new Date("2025-04-30T16:04:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const remainingTime = Math.max(0, Math.floor((targetTime - now) / 1000));
+
+            const days = Math.floor(remainingTime / 86400);
+            const hours = Math.floor((remainingTime % 86400) / 3600);
+            const minutes = Math.floor((remainingTime % 3600) / 60);
+            const seconds = remainingTime % 60;
+
+            timeDisplay.textContent = `${days}d ${String(hours).padStart(2, '0')}h:${String(minutes).padStart(2, '0')}m:${String(seconds).padStart(2, '0')}s`;
+
+            if (remainingTime <= 0) {
+                clearInterval(countdownInterval);
+                countdownContainer.innerHTML = '<div style="font-size: 3em; color: red;">♥</div>';
+            }
+        }
+
+        updateCountdown();
+        const countdownInterval = setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
