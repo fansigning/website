@@ -4,36 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>♥</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
-        body {
-            font-family: 'Arvo', serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #000;
-        }
-        .countdown {
-            text-align: center;
-            color: #fff;
-        }
-        .time {
-            font-size: 3em;
-            margin: 20px 0;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="countdown">
-        <div class="time" id="time">00:00:00</div>
+    <div class="header">
+        <h1>₍^. .^₎⟆</h1>
     </div>
+    <div class="countdown-container">
+        <div class="countdown">
+            <div class="time" id="time">00:00:00</div>
+        </div>
+    </div>
+    <div class="hearts"></div>
+    <script src="hearts.js"></script>
+    <footer>
+        much love xx
+    </footer>
 
     <script>
         const timeDisplay = document.getElementById('time');
-
         const targetTime = new Date("2025-04-30T16:04:00").getTime();
 
         function updateCountdown() {
@@ -49,12 +38,13 @@
 
             if (remainingTime <= 0) {
                 clearInterval(countdownInterval);
-                countdownContainer.innerHTML = '<div style="font-size: 3em; color: red;">♥</div>';
+                document.querySelector(".countdown").innerHTML = '<div style="font-size: 3em; color: pink;">♥ Time\'s Up!</div>';
             }
         }
 
         updateCountdown();
         const countdownInterval = setInterval(updateCountdown, 1000);
     </script>
+
 </body>
 </html>
