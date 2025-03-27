@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>♥</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+
+<body class="font-serif">
+    <div>
+        <img src="8afc793f1d1be18e9bec2d7f7e5a187c.png" alt="bg"
+            class="brightness-blink absolute left-0 bottom-0 pl-50">
+    </div>
     <div class="header">
-        <h1>₍^. .^₎⟆</h1>
+        <h1 class="text-5xl">₍^. .^₎⟆</h1>
     </div>
     <div class="countdown-container">
         <div class="countdown">
@@ -23,7 +30,7 @@
 
     <script>
         const timeDisplay = document.getElementById('time');
-        const targetTime = new Date("2025-04-30T16:04:00").getTime();
+        const targetTime = new Date("2025-04-30T16:04:59").getTime();
 
         function updateCountdown() {
             const now = new Date().getTime();
@@ -38,7 +45,7 @@
 
             if (remainingTime <= 0) {
                 clearInterval(countdownInterval);
-                document.querySelector(".countdown").innerHTML = '<div style="font-size: 3em; color: pink;">♥ Time\'s Up!</div>';
+                document.querySelector(".countdown").innerHTML = '<div style="font-size: 3em; color: pink;">♥</div>';
             }
         }
 
@@ -47,4 +54,5 @@
     </script>
 
 </body>
+
 </html>
